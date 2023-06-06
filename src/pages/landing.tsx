@@ -1,19 +1,32 @@
-import { useState } from "react";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export default function Landing() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <Diva />
-      aaaaaaaaaaa
+      <Header>
+        <div>
+          <h1>BENEDITA RECEITA</h1>
+        </div>
+      </Header>
+      <GlobalStyles />
     </>
   );
 }
 
-const Diva = styled.div`
-  width: 100px;
-  height: 100px;
-  background-color: aliceblue;
+const Header = styled.div`
+  width: 100vw;
+  height: 60px;
+  background-color: #ff531c;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const GlobalStyles = createGlobalStyle`
+  body{
+    background-color: #975703;
+    }
 `;
