@@ -1,32 +1,32 @@
 import styled, { createGlobalStyle } from "styled-components";
+import FeedPage from "./FeedPage";
 
 export default function Landing() {
   return (
     <>
-      <Header>
-        <div>
-          <h1>BENEDITA RECEITA</h1>
-        </div>
-      </Header>
+      <FeedContainer></FeedContainer>
+      <FeedPage></FeedPage>
+      <FeedPage></FeedPage>
+      <FeedPage></FeedPage>
       <GlobalStyles />
     </>
   );
 }
 
-const Header = styled.div`
-  width: 100vw;
-  height: 60px;
-  background-color: #ff531c;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 const GlobalStyles = createGlobalStyle`
   body{
-    background-color: #975703;
-    }
+    background-color: #dbdbdb;
+    z-index: 0;
+    overflow-y: scroll;
+    padding-bottom: 100px;
+  }
+
+`;
+
+const FeedContainer = styled.div`
+  top: 40px;
+  position: relative;
+  width: 85vw;
+  display: flex;
+  background-color: bisque;
 `;
