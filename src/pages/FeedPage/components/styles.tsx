@@ -9,14 +9,33 @@ export const TitleCard = styled.div`
 `;
 
 export const InferiorDiv = styled.div`
-  background-color: antiquewhite;
   width: 100%;
-  height: 65%;
+  height: 58%;
   font-size: xx-large;
   overflow-y: scroll;
   padding-right: 5px;
   text-indent: 15%;
   text-align: justify;
+
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: lightgray;
+    border-radius: 15px;
+    min-height: 30px;
+    overflow: auto;
+    border: 4px solid transparent;
+    background-clip: padding-box;
+    transition: height 0.2s ease-in-out;
+    padding: 5px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #00000040;
+    border: 0px solid transparent;
+    box-shadow: none;
+  }
 `;
 
 export const SuperiorDiv = styled.div`
@@ -38,6 +57,7 @@ export const RecipeContainer = styled.div`
   box-sizing: border-box;
   /* overflow-y: scroll; */
   font-family: "Ubuntu", sans-serif;
+  overflow-x: hidden;
 `;
 
 export const ImageDiv = styled.div`
@@ -51,4 +71,8 @@ export const ImageDiv = styled.div`
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3),
       -3px 3px 3px 1px rgba(0, 0, 0, 0.3);
   }
+`;
+export const Spacing = styled.div`
+  height: 15%;
+  max-height: 15px;
 `;

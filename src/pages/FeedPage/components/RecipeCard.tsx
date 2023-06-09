@@ -1,5 +1,11 @@
 import ImageContainer from "./imageContainer";
-import { RecipeContainer, SuperiorDiv, TitleCard, InferiorDiv } from "./styles";
+import {
+  RecipeContainer,
+  SuperiorDiv,
+  TitleCard,
+  InferiorDiv,
+  Spacing,
+} from "./styles";
 
 export default function RecipeCard() {
   return (
@@ -12,6 +18,7 @@ export default function RecipeCard() {
           />
           <TitleCard>Pão caseiro delicioso</TitleCard>
         </SuperiorDiv>
+        <Spacing />
         <InferiorDiv>
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
