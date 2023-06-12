@@ -1,4 +1,4 @@
-import { BodySignin, Button, StyledLink } from "./styled";
+import { BodySignin, StyledLink } from "./styled";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 type Inputs = {

@@ -1,11 +1,14 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Header() {
   return (
     <Container>
-      <div>
-        <h1>Benedita Receita</h1>
-      </div>
+      <Link to={"/"}>
+        <div>
+          <h1>Benedita Receita</h1>
+        </div>
+      </Link>
     </Container>
   );
 }
@@ -15,6 +18,9 @@ const Container = styled.div`
   height: 60px;
   h1 {
     font-family: "Passion One", cursive;
+  }
+  a:visited {
+    color: #fff6e2;
   }
   background-color: #ff531c;
   position: fixed;

@@ -6,6 +6,7 @@ import SignupPage from "./pages/Login/signupPage";
 import styled from "styled-components";
 import Header from "./commonAssets/components/Header";
 import Categories from "./commonAssets/components/Categories";
+import RecipePage from "./pages/RecipePage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<SignupPage />} />
+        <Route path="/recipe" element={<RecipePage />} />
       </Routes>
     </BrowserRouter>
   );

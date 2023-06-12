@@ -10,6 +10,7 @@ export const BodyHome = styled.div`
   flex-direction: column;
   padding-right: 25px;
   box-sizing: border-box;
+  user-select: none;
   @media (max-width: 900px) {
     height: 175px;
   }
@@ -63,6 +64,7 @@ export const BodySignin = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  user-select: none;
   @media (max-width: 900px) {
     width: 100%;
   }
