@@ -18,7 +18,7 @@ export const InferiorDiv = styled.div`
   text-align: justify;
 
   ::-webkit-scrollbar {
-    width: 20px;
+    width: 12px;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -55,7 +55,6 @@ export const RecipeContainer = styled.div`
   background-color: white;
   z-index: 1;
   box-sizing: border-box;
-  /* overflow-y: scroll; */
   font-family: "Ubuntu", sans-serif;
   overflow-x: hidden;
 `;
