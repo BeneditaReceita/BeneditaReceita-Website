@@ -7,8 +7,9 @@ export default function Banner() {
 
       <img
         style={{
+          height: "100%",
           width: "100%",
-
+          objectFit: "cover",
           bottom: "6%",
           right: "0",
           top: "120px",

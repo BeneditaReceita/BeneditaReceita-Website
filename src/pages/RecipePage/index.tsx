@@ -9,12 +9,13 @@ export default function RecipePage() {
       <Container>
         <RecipeContainer>
           <RecipeBlock>
-            <ImageContainer
-              image={
-                "https://amopaocaseiro.com.br/wp-content/uploads/2020/01/pao-caseiro-para-iniciantes_02.jpg"
-              }
-              size="280px"
-            />
+            <HeadDiv>
+              <img
+                src="https://amopaocaseiro.com.br/wp-content/uploads/2020/01/pao-caseiro-para-iniciantes_02.jpg"
+                alt=""
+              />
+              <Title>Pao caseiro gostoso Pao caseiro gostoso</Title>
+            </HeadDiv>
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -42,7 +43,6 @@ const Container = styled.div`
   position: fixed;
   right: 0;
   top: 120px;
-
   z-index: 1;
   height: 100vh;
   font-family: "Ubuntu", sans-serif;
@@ -53,8 +53,11 @@ const RecipeBlock = styled.div`
   margin-right: auto;
   margin-top: 100px;
   width: 80%;
-  background-color: white;
-  font-size: 80px;
+  background-color: #faf6d0;
+
+  padding: 50px;
+  box-sizing: border-box;
+  flex-direction: column;
 `;
 
 const RecipeContainer = styled.div`
@@ -67,6 +70,7 @@ const RecipeContainer = styled.div`
   background-image: linear-gradient(to bottom, #ba541450, #ba5414);
   z-index: 1;
   height: 100vh;
+
   font-family: "Ubuntu", sans-serif;
   ::-webkit-scrollbar {
     width: 12px;
@@ -86,5 +90,30 @@ const RecipeContainer = styled.div`
     background-color: #ff990040;
     border: 0px solid transparent;
     box-shadow: none;
+  }
+`;
+
+const Title = styled.span`
+  font-size: 50px;
+  width: 50%;
+  position: relative;
+
+  padding-left: 5%;
+  padding-right: 5%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+`;
+
+const HeadDiv = styled.div`
+  display: flex;
+  img {
+    max-height: 250px;
+    position: relative;
+    width: 50%;
+    object-fit: cover;
+    box-sizing: border-box;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3),
+      -3px 3px 3px 1px rgba(0, 0, 0, 0.3);
   }
 `;
