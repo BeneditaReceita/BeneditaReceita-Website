@@ -6,6 +6,9 @@ export const TitleCard = styled.div`
   width: 50%;
   font-size: xxx-large;
   overflow: hidden;
+  :visited {
+    color: black;
+  }
 `;
 
 export const InferiorDiv = styled.div`

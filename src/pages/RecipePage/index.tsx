@@ -1,7 +1,5 @@
 import styled from "styled-components";
-
 import Banner from "./components/Banner";
-import ImageContainer from "../FeedPage/components/imageContainer";
 
 export default function RecipePage() {
   return (
@@ -98,10 +96,27 @@ export default function RecipePage() {
                 pulvinar. Aenean facilisis turpis leo, et auctor ipsum convallis
                 vitae. Sed elementum sed lacus sed egestas. Vestibulum ante
                 ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+                curae; elit. Vestibulum blandit lectus quis nulla tincidunt, ut
+                hendrerit sem lobortis. Sed maximus dui id feugiat egestas.
+                Fusce ultricies nisi ut tortor hendrerit fringilla. Proin
+                pellentesque diam dapibus mauris ultrices, id fringilla mauris
+                faucibus. Suspendisse ac auctor est. Nunc in ex tempor, lobortis
+                odio aliquam, finibus augue. Etiam ex leo, dictum id nulla eget,
+                cursus feugiat tortor. Curabitur sit amet porttitor nibh. Sed
+                sagittis pulvinar elementum. Mauris at magna vitae nunc pulvinar
+                tempor. Nam in arcu tristique, pellentesque arcu at, iaculis
+                mauris. Donec urna nulla, iaculis id ipsum in, malesuada
+                convallis ante. Nam hendrerit dignissim orci dapibus placerat.
+                Donec fermentum vitae diam ut convallis. Maecenas sollicitudin
+                pulvinar tincidunt. Curabitur mattis neque vehicula dapibus
+                pulvinar. Aenean facilisis turpis leo, et auctor ipsum convallis
+                vitae. Sed elementum sed lacus sed egestas. Vestibulum ante
+                ipsum primis in faucibus orci luctus et ultrices posuere cubilia
                 curae;
               </HowTo>
             </RecipeBody>
           </RecipeBlock>
+          <Spacer />
         </RecipeContainer>
         <Banner />
       </Container>
@@ -125,10 +140,10 @@ const RecipeBlock = styled.div`
   margin-top: 100px;
   width: 80%;
   background-color: #faf6d0;
-
   padding: 50px;
   box-sizing: border-box;
   flex-direction: column;
+  padding-bottom: 60px;
 `;
 
 const RecipeContainer = styled.div`
@@ -138,7 +153,7 @@ const RecipeContainer = styled.div`
   right: 0;
   top: 120px;
   color: black;
-  background-image: linear-gradient(to bottom, #ba541450, #ba5414);
+  background-image: linear-gradient(to bottom, #ba541430, #ba5414);
   z-index: 1;
   height: 100vh;
 
@@ -158,14 +173,15 @@ const RecipeContainer = styled.div`
     padding: 5px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background-color: #ff990040;
+    background-color: #008cff40;
     border: 0px solid transparent;
     box-shadow: none;
   }
 `;
 
 const Title = styled.span`
-  font-size: 30px;
+  font-family: "Passion One", cursive;
+  font-size: 20px;
   width: 50%;
   font-weight: bolder;
   position: relative;
@@ -174,6 +190,10 @@ const Title = styled.span`
   padding-right: 5%;
   box-sizing: border-box;
   word-wrap: break-word;
+  color: darkgray;
+  @media screen and (min-width: 600px) {
+    font-size: 30px;
+  }
   @media screen and (min-width: 800px) {
     font-size: 40px;
   }
@@ -224,3 +244,8 @@ const Ingredients = styled.div`
 `;
 
 const HowTo = styled.div``;
+
+const Spacer = styled.div`
+  height: 200px;
+  width: 150px;
+`;

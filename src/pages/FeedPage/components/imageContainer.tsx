@@ -1,16 +1,20 @@
+import { Link } from "react-router-dom";
 import { ImageDiv } from "./styles";
 
 type imageProps = {
   size?: string;
   image: string;
+  to: string;
 };
 
 export default function ImageContainer(prop: imageProps) {
-  const { size } = prop;
+  const { size, to, image } = prop;
   return (
     <>
       <ImageDiv>
-        <img style={{ width: size }} src={prop.image} />
+        <Link to={to}>
+          <img style={{ width: size }} src={image} />
+        </Link>
       </ImageDiv>
     </>
   );

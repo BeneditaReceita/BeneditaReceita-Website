@@ -22,6 +22,7 @@ const Container = styled.div`
   a:visited {
     color: #fff6e2;
   }
+  user-select: none;
   background-color: #ff531c;
   position: fixed;
   top: 0;

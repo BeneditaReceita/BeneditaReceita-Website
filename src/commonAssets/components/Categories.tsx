@@ -3,8 +3,6 @@ import { IoIosSearch } from "react-icons/io";
 import { IconContext } from "react-icons";
 
 export default function Categories() {
-  // const [hide, setHide] = useState("");
-
   return (
     <>
       <Container>
@@ -19,7 +17,6 @@ export default function Categories() {
         <div>Doces</div>
         <div>Salgados</div>
         <div>Bebidas</div>
-
         <div>Carnes</div>
         <div>Snack</div>
         <div>Bolos & Tortas</div>
@@ -56,6 +53,17 @@ const Container = styled.div`
       border-color: #96969652;
       border-top: 0;
       border-bottom: 0;
+    }
+  }
+  @media (max-width: 800px) {
+    div {
+      display: none;
+
+      :nth-of-type(2),
+      :nth-of-type(1),
+      :nth-last-of-type(1) {
+        display: flex;
+      }
     }
   }
 `;

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ImageContainer from "./imageContainer";
 import {
   RecipeContainer,
@@ -13,10 +14,16 @@ export default function RecipeCard() {
       <RecipeContainer>
         <SuperiorDiv>
           <ImageContainer
+            to={"/receita/"}
             size={"100%"}
             image="https://amopaocaseiro.com.br/wp-content/uploads/2020/01/pao-caseiro-para-iniciantes_02.jpg"
           />
-          <TitleCard>Pão caseiro delicioso</TitleCard>
+
+          <TitleCard>
+            <Link style={{ color: "black" }} to={"/receita/"}>
+              Pão caseiro delicioso
+            </Link>
+          </TitleCard>
         </SuperiorDiv>
         <Spacing />
         <InferiorDiv>
