@@ -8,40 +8,35 @@ import {
   Spacing,
 } from "./styles";
 
-export default function RecipeCard() {
+type dataProps = {
+  Description: string;
+  createdAt: "2023-06-11T20:40:17.847Z";
+  id: number;
+  img: string;
+  name: string;
+  user?: unknown;
+};
+
+export default function RecipeCard(prop: dataProps) {
+  console.log(prop);
   return (
     <>
       <RecipeContainer>
         <SuperiorDiv>
           <ImageContainer
-            to={"/receita/"}
+            to={`/receita/${prop.id}`}
             size={"100%"}
-            image="https://amopaocaseiro.com.br/wp-content/uploads/2020/01/pao-caseiro-para-iniciantes_02.jpg"
+            image={`${prop.img}`}
           />
 
           <TitleCard>
             <Link style={{ color: "black" }} to={"/receita/"}>
-              Pão caseiro delicioso
+              {prop.name}
             </Link>
           </TitleCard>
         </SuperiorDiv>
         <Spacing />
-        <InferiorDiv>
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum." "Lorem ipsum
-          dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-          occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-          mollit anim id est laborum."
-        </InferiorDiv>
+        <InferiorDiv>{prop.Description}</InferiorDiv>
       </RecipeContainer>
     </>
   );

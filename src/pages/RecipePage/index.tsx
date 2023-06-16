@@ -1,5 +1,3 @@
-import useRecipeList from "../../hooks/api/useRecipes";
-import { getRecipeList } from "../../services/useRecipes";
 import Banner from "./components/Banner";
 import {
   RecipeContainer,
@@ -15,9 +13,6 @@ import {
 } from "./styles";
 
 export default function RecipePage() {
-  const { recipes } = useRecipeList();
-  console.log(recipes);
-
   return (
     <>
       <Container>

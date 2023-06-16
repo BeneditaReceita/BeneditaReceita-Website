@@ -6,14 +6,16 @@ export default function Categories() {
   return (
     <>
       <Container>
-        <IconContext.Provider
-          value={{
-            color: "dark-grey",
-            className: "global-class-name",
-            size: "75%",
-          }}>
-          <IoIosSearch></IoIosSearch>
-        </IconContext.Provider>
+        <span>
+          <IconContext.Provider
+            value={{
+              color: "dark-grey",
+              className: "global-class-name",
+              size: "75%",
+            }}>
+            <IoIosSearch></IoIosSearch>
+          </IconContext.Provider>
+        </span>
         <div>Doces</div>
         <div>Salgados</div>
         <div>Bebidas</div>
@@ -49,10 +51,25 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     :hover {
-      border-style: solid;
-      border-color: #96969652;
-      border-top: 0;
-      border-bottom: 0;
+      background-color: #c2700d;
+      width: 115%;
+      cursor: pointer;
+    }
+  }
+  span {
+    box-sizing: border-box;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    padding-left: 10px;
+    right: 10px;
+    align-items: center;
+    justify-content: center;
+    :hover {
+      background-color: #c2700d;
+      width: 150%;
+      cursor: pointer;
     }
   }
   @media (max-width: 800px) {
