@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle } from "styled-components";
 import FeedPage from "./FeedPage";
-import useRecipeList from "../hooks/api/useRecipes";
+import { usePostRecipe, useRecipeList } from "../hooks/api/useRecipes";
+
 import { useState } from "react";
 
 export default function Landing() {
@@ -25,7 +26,7 @@ export default function Landing() {
           Description={e.Description}
           createdAt={e.createdAt}
           id={e.id}
-          img={e.image}
+          img={e.img}
           name={e.name}
         />
       ))}

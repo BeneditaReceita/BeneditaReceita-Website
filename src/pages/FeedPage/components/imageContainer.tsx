@@ -9,7 +9,7 @@ type imageProps = {
 
 export default function ImageContainer(prop: imageProps) {
   const { size, to, image } = prop;
-  console.log(image);
+
   return (
     <>
       <ImageDiv>

@@ -68,7 +68,7 @@ const Container = styled.div`
     justify-content: center;
     :hover {
       background-color: #c2700d;
-      width: 150%;
+      width: 100%;
       cursor: pointer;
     }
   }

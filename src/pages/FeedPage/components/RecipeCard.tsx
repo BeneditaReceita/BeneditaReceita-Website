@@ -18,7 +18,6 @@ type dataProps = {
 };
 
 export default function RecipeCard(prop: dataProps) {
-  console.log(prop);
   return (
     <>
       <RecipeContainer>
@@ -30,7 +29,7 @@ export default function RecipeCard(prop: dataProps) {
           />
 
           <TitleCard>
-            <Link style={{ color: "black" }} to={"/receita/"}>
+            <Link style={{ color: "black" }} to={`/receita/${prop.id}`}>
               {prop.name}
             </Link>
           </TitleCard>
