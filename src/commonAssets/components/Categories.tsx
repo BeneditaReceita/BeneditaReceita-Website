@@ -44,7 +44,9 @@ const Container = styled.div`
   padding-left: 10px;
   padding-right: 10px;
   box-sizing: border-box;
+  text-shadow: 0px 1px #424242;
   div {
+    font-size: larger;
     width: 100%;
     height: 100%;
     display: flex;
@@ -56,6 +58,8 @@ const Container = styled.div`
       cursor: pointer;
     }
   }
+  /* ff910f */
+  /* c2700d */
   span {
     box-sizing: border-box;
     width: 50%;

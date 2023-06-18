@@ -22,6 +22,7 @@ export function usePostRecipe(
   name: string,
   Description: string,
   img: string,
+  HowTo: string,
   Ingredients: Recipes.Ingredients
 ) {
   const {
@@ -30,11 +31,27 @@ export function usePostRecipe(
     error: recipesError,
     act: getRecipes,
   } = useAsync(() =>
-    Recipes.postRecipe({ name, Description, img, Ingredients })
+    Recipes.postRecipe({ name, Description, img, HowTo, Ingredients })
   );
 
   return {
     recipes,
+    recipesLoading,
+    recipesError,
+    getRecipes,
+  };
+}
+
+export function useRecipeById(id: string | undefined) {
+  const {
+    data: recipe,
+    loading: recipesLoading,
+    error: recipesError,
+    act: getRecipes,
+  } = useAsync(() => Recipes.getRecipeById(id));
+
+  return {
+    recipe,
     recipesLoading,
     recipesError,
     getRecipes,
