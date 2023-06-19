@@ -8,16 +8,9 @@ import {
   Spacing,
 } from "./styles";
 
-type dataProps = {
-  Description: string;
-  createdAt: "2023-06-11T20:40:17.847Z";
-  id: number;
-  img: string;
-  name: string;
-  user?: unknown;
-};
+import { recipeProps } from "..";
 
-export default function RecipeCard(prop: dataProps) {
+export default function RecipeCard(prop: recipeProps) {
   return (
     <>
       <RecipeContainer>

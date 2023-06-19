@@ -7,6 +7,7 @@ import styled from "styled-components";
 import Header from "./commonAssets/components/Header";
 import Categories from "./commonAssets/components/Categories";
 import RecipePage from "./pages/RecipePage";
+import NewRecipe from "./pages/NewRecipe";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/sign-up" element={<SignupPage />} />
         <Route path="/receita/:id" element={<RecipePage />} />
+        <Route path="/nova-receita/" element={<NewRecipe />} />
       </Routes>
     </BrowserRouter>
   );

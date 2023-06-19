@@ -66,7 +66,7 @@ export const Title = styled.span`
   padding-right: 5%;
   box-sizing: border-box;
   word-wrap: break-word;
-  color: #666666;
+  color: #6d3a00;
   @media screen and (min-width: 600px) {
     font-size: 30px;
   }

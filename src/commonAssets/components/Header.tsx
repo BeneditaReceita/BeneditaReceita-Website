@@ -4,6 +4,9 @@ import styled from "styled-components";
 export default function Header() {
   return (
     <Container>
+      <Link to={"/nova-receita/"}>
+        <span>+</span>
+      </Link>
       <Link to={"/"}>
         <div>
           <h1>Benedita Receita</h1>
@@ -31,4 +34,27 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 3;
+  @media (max-width: 400px) {
+    h1 {
+      font-size: 2.5em;
+    }
+  }
+  span {
+    a:visited {
+      color: #000000;
+    }
+    a {
+      color: #000000;
+    }
+    color: #8a5e01;
+    position: fixed;
+    top: 18px;
+    border-radius: 25px;
+    width: 25px;
+    background-color: #ffbb00;
+    left: 4%;
+    @media (max-width: 800px) {
+      display: none;
+    }
+  }
 `;

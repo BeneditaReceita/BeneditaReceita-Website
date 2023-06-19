@@ -1,15 +1,15 @@
 import RecipeCard from "./components/RecipeCard";
 
-type dataProps = {
+export type recipeProps = {
   Description: string;
-  createdAt: "2023-06-11T20:40:17.847Z";
+  createdAt: string;
   id: number;
   img: string;
   name: string;
   user?: unknown;
 };
 
-export default function FeedPage(prop: dataProps) {
+export default function FeedPage(prop: recipeProps) {
   return (
     <>
       <RecipeCard

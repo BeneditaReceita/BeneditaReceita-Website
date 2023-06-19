@@ -1,14 +1,16 @@
 import styled, { createGlobalStyle } from "styled-components";
 import FeedPage from "./FeedPage";
-import { usePostRecipe, useRecipeList } from "../hooks/api/useRecipes";
+import { useRecipeList } from "../hooks/api/useRecipes";
 
 import { useState } from "react";
 
 export default function Landing() {
-  const [recipeList, setRecipeList] = useState([]);
+  const [recipeList, setRecipeList] = useState([
+    { Description: "", createdAt: "", id: 0, img: "", name: "" },
+  ]);
   const { recipes } = useRecipeList();
 
-  if (!recipeList[0]) {
+  if (!recipeList[0].id) {
     if (recipes) {
       const { data } = recipes;
       setRecipeList(data);
