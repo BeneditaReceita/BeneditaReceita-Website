@@ -47,14 +47,14 @@ export default function RecipePage() {
                 </Description>
                 <h2>Ingredientes:</h2>
                 <Ingredients>
-                  <IngredientsList Ingredients={recipeData.Ingredients} />;
-                  <p>- 1 e 1/2 xícara de leite morno</p>
+                  <IngredientsList Ingredients={recipeData.Ingredients} />
+                  {/* <p>- 1 e 1/2 xícara de leite morno</p>
                   <p>- água 1/2 xícara de água morna</p>
                   <p>- óleo 1/2 xícara</p>
                   <p>- açúcar 4 colheres de sopa</p>
                   <p>- 10 g de fermento biológico</p>
                   <p>- sal 1/2 colher de sopa</p>
-                  <p>- 2 ovos </p>
+                  <p>- 2 ovos </p> */}
                 </Ingredients>
                 <HowTo>
                   <h2>Como fazer:</h2>

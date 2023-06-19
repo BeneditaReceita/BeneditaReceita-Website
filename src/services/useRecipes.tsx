@@ -6,6 +6,7 @@ export type Ingredients = {
   measureUnit: string;
 }[];
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function getRecipeList(range?: number) {
   const response = await api.get("/recipes");
   return response;

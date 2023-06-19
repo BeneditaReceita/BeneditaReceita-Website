@@ -8,6 +8,7 @@ export type Receita = {
   HowTo: string;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function DescriptionForm(prop: any) {
   const {
     register,
@@ -56,7 +57,7 @@ export default function DescriptionForm(prop: any) {
           <h2>Passo a passo da receita</h2>
           <input
             style={{ background: "white" }}
-            placeholder="historia da receita"
+            placeholder="Passo a passo da receita"
             type="text"
             {...register("HowTo", { required: true })}
           />

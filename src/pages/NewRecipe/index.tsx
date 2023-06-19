@@ -3,7 +3,7 @@ import DescriptionForm from "./components/descriptionForm";
 import { Container, Globalstyles, Button } from "./styled";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Receita } from "./components/descriptionForm";
-import { Ingredients } from "../../services/useRecipes";
+// import { Ingredients } from "../../services/useRecipes";
 import api from "../../services/api";
 
 type Inputs = {
@@ -12,13 +12,13 @@ type Inputs = {
   measureUnit: string;
 };
 
-type completeForm = {
-  name: string;
-  Description: string;
-  img: string;
-  HowTo: string;
-  Ingredients: Ingredients;
-};
+// type completeForm = {
+//   name: string;
+//   Description: string;
+//   img: string;
+//   HowTo: string;
+//   Ingredients: Ingredients;
+// };
 
 export default function Signin() {
   const {
@@ -34,14 +34,13 @@ export default function Signin() {
   );
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
+    data.quantity = parseInt(data.quantity);
     array.push(data);
     setingredientArray(array);
   };
-  console.log(ingredientArray);
+  // console.log(ingredientArray);
 
   async function post() {
-    console.log(receita);
-    console.log(array);
     if (Object.keys(receita).length === 0 || !ingredientArray[0]) {
       alert("preencha todos os campos e clique em salvar");
       return 0;
@@ -53,7 +52,6 @@ export default function Signin() {
       HowTo: receita.HowTo,
       Ingredients: ingredientArray,
     });
-    console.log(response);
   }
 
   return (
