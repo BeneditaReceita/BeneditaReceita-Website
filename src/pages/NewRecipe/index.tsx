@@ -20,13 +20,13 @@ type Inputs = {
 //   Ingredients: Ingredients;
 // };
 
+const array: Inputs[] = [];
 export default function Signin() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-  const array: Inputs[] = [];
 
   const [receita, setreceita] = useState<Receita>({} as Receita);
   const [ingredientArray, setingredientArray] = useState<Inputs[]>(
@@ -38,7 +38,7 @@ export default function Signin() {
     array.push(data);
     setingredientArray(array);
   };
-  // console.log(ingredientArray);
+  console.log(ingredientArray);
 
   async function post() {
     if (Object.keys(receita).length === 0 || !ingredientArray[0]) {
@@ -85,7 +85,11 @@ export default function Signin() {
           style={{ background: "white" }}
           placeholder="quantidade"
           type="number"
-          {...register("quantity", { required: true, maxLength: 100 })}
+          {...register("quantity", {
+            required: true,
+            maxLength: 100,
+            valueAsNumber: true,
+          })}
         />
         {errors.quantity && <span> coloque a quantidade</span>}
 

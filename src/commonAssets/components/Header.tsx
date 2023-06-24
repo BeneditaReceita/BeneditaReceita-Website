@@ -1,18 +1,28 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { IoMdPerson } from "react-icons/io";
 
 export default function Header() {
   return (
-    <Container>
-      <Link to={"/nova-receita/"}>
-        <span>+</span>
-      </Link>
-      <Link to={"/"}>
+    <>
+      <Container>
+        <Link to={"/nova-receita/"}>
+          <span style={{ height: "25px" }}>+</span>
+        </Link>
         <div>
-          <h1>Benedita Receita</h1>
+          <Link to={"/"}>
+            <h1>Benedita Receita</h1>
+          </Link>
         </div>
-      </Link>
-    </Container>
+        <StyledImage>
+          <div>
+            <Link to={"/login"}>
+              <IoMdPerson size={"30px"} />
+            </Link>
+          </div>
+        </StyledImage>
+      </Container>
+    </>
   );
 }
 
@@ -34,9 +44,14 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 3;
-  @media (max-width: 400px) {
+  @media (max-width: 500px) {
     h1 {
       font-size: 2.5em;
+    }
+  }
+  @media (max-width: 400px) {
+    h1 {
+      font-size: 2.2em;
     }
   }
   span {
@@ -46,6 +61,9 @@ const Container = styled.div`
     a {
       color: #000000;
     }
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #8a5e01;
     position: fixed;
     top: 18px;
@@ -57,4 +75,11 @@ const Container = styled.div`
       display: none;
     }
   }
+`;
+
+const StyledImage = styled.div`
+  position: fixed;
+  top: 15px;
+  right: 3%;
+  z-index: 3;
 `;
