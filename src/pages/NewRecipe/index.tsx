@@ -15,8 +15,7 @@ export default function AddRecipe() {
   } = useForm<Inputs>();
 
   const [receita, setreceita] = useState<Receita>({} as Receita);
-  const [step, setstep] = useState<Receita>({} as Receita);
-
+  const [step, setstep] = useState<Steps>({} as Steps);
   const [ingredientArray, setingredientArray] = useState<DataType[]>(
     [] as DataType[]
   );
@@ -31,13 +30,13 @@ export default function AddRecipe() {
     array.push(sendData);
     setingredientArray(array);
   };
-  console.log(step);
+
   async function post() {
-    if (Object.keys(receita).length === 0 || !ingredientArray[0]) {
+    if (Object.keys(receita).length === 0 || !ingredientArray[0] || !step[0]) {
       alert("preencha todos os campos e clique em salvar");
       return 0;
     }
-    const response = await api.post("/recipes", {
+    await api.post("/recipes", {
       name: receita.name,
       Description: receita.Description,
       img: receita.img,
@@ -113,3 +112,5 @@ type DataType = {
 };
 
 const array: DataType[] = [];
+
+type Steps = [{ step: number; img: string; Description: string }];

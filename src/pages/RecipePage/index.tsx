@@ -17,7 +17,7 @@ import { useState } from "react";
 import IngredientsList from "./components/ingredients";
 
 export default function RecipePage() {
-  const [recipeData, setRecipeData] = useState(recipeObject);
+  const [recipeData, setRecipeData] = useState({} as recipeObject);
   const { id } = useParams();
   const { recipe } = useRecipeById(id);
 
@@ -80,19 +80,19 @@ export default function RecipePage() {
   }
 }
 
-const recipeObject = {
-  id: null,
+type recipeObject = {
+  id: number;
   Ingredients: [
     {
-      id: 0,
-      RecipeId: 0,
-      quantity: 0,
-      name: "",
-      measureUnit: "",
-    },
-  ],
-  Description: "",
-  name: "",
-  img: "",
-  HowTo: "",
+      id: number;
+      RecipeId: number;
+      quantity: number;
+      name: string;
+      measureUnit: string;
+    }
+  ];
+  Description: string;
+  name: string;
+  img: string;
+  Steps: [{ step: number; img: string; Description: string }];
 };

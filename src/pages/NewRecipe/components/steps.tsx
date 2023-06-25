@@ -7,7 +7,7 @@ export type Step = {
   step: number | null;
 };
 
-const array: any = [];
+const array: Step[] = [];
 let count = 0;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
