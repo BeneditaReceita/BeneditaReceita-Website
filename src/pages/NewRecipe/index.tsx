@@ -3,25 +3,11 @@ import DescriptionForm from "./components/descriptionForm";
 import { Container, Globalstyles, Button } from "./styled";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Receita } from "./components/descriptionForm";
-// import { Ingredients } from "../../services/useRecipes";
+
 import api from "../../services/api";
+import Steps from "./components/steps";
 
-type Inputs = {
-  quantity: number;
-  name: string;
-  measureUnit: string;
-};
-
-// type completeForm = {
-//   name: string;
-//   Description: string;
-//   img: string;
-//   HowTo: string;
-//   Ingredients: Ingredients;
-// };
-
-const array: Inputs[] = [];
-export default function Signin() {
+export default function AddRecipe() {
   const {
     register,
     handleSubmit,
@@ -29,17 +15,23 @@ export default function Signin() {
   } = useForm<Inputs>();
 
   const [receita, setreceita] = useState<Receita>({} as Receita);
-  const [ingredientArray, setingredientArray] = useState<Inputs[]>(
-    [] as Inputs[]
+  const [step, setstep] = useState<Receita>({} as Receita);
+
+  const [ingredientArray, setingredientArray] = useState<DataType[]>(
+    [] as DataType[]
   );
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    data.quantity = parseInt(data.quantity);
-    array.push(data);
+    const sendData = {
+      quantity: parseInt(data.quantity),
+      name: data.name,
+      measureUnit: data.measureUnit,
+    };
+
+    array.push(sendData);
     setingredientArray(array);
   };
-  console.log(ingredientArray);
-
+  console.log(step);
   async function post() {
     if (Object.keys(receita).length === 0 || !ingredientArray[0]) {
       alert("preencha todos os campos e clique em salvar");
@@ -49,7 +41,7 @@ export default function Signin() {
       name: receita.name,
       Description: receita.Description,
       img: receita.img,
-      HowTo: receita.HowTo,
+      Steps: step,
       Ingredients: ingredientArray,
     });
   }
@@ -58,6 +50,7 @@ export default function Signin() {
     <Container>
       <h1>Compartilhe suas receitas favoritas!</h1>
       <DescriptionForm receita={setreceita} />
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <span>
           <h2>adicionar ingredientes:</h2>
@@ -99,8 +92,24 @@ export default function Signin() {
           value={"Adicionar ingrediente"}
         />
       </form>
+      <Steps step={setstep} />
+
       <Button onClick={() => post()}>Enviar receita</Button>
       <Globalstyles />
     </Container>
   );
 }
+
+type Inputs = {
+  quantity: string;
+  name: string;
+  measureUnit: string;
+};
+
+type DataType = {
+  quantity: number;
+  name: string;
+  measureUnit: string;
+};
+
+const array: DataType[] = [];

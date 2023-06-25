@@ -9,7 +9,7 @@ export default function Landing() {
     { Description: "", createdAt: "", id: 0, img: "", name: "" },
   ]);
   const { recipes } = useRecipeList();
-
+  const joj = useRecipeList;
   if (!recipeList[0].id) {
     if (recipes) {
       const { data } = recipes;
@@ -18,6 +18,8 @@ export default function Landing() {
       return <>loading</>;
     }
   }
+
+  console.log(joj);
 
   return (
     <>

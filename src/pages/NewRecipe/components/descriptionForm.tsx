@@ -5,11 +5,10 @@ export type Receita = {
   name: string;
   Description: string;
   img: string;
-  HowTo: string;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function DescriptionForm(prop: any) {
+export default function Description(prop: any) {
   const {
     register,
     handleSubmit,
@@ -54,23 +53,12 @@ export default function DescriptionForm(prop: any) {
           {errors.Description && (
             <span> Você precisa contar a história da sua receita! </span>
           )}
-          <h2>Passo a passo da receita</h2>
-          <input
-            style={{ background: "white" }}
-            placeholder="Passo a passo da receita"
-            type="text"
-            {...register("HowTo", { required: true })}
-          />
-
-          {errors.HowTo && (
-            <span> Você precisa contar como fazer sua receita </span>
-          )}
         </BigInputs>
 
         <input
           style={{ background: "#FF531C", color: "#ffffff", border: "none" }}
           type="submit"
-          value={"Salvar receita"}
+          value={"Salvar descrição"}
         />
       </form>
     </>
