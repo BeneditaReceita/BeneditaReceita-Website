@@ -14,7 +14,8 @@ import {
 } from "./styles";
 import { useRecipeById } from "../../hooks/api/useRecipes";
 import { useState } from "react";
-import IngredientsList from "./components/ingredients";
+import IngredientsList, { IngredientsType } from "./components/ingredients";
+import StepList, { Steps } from "./components/steps";
 
 export default function RecipePage() {
   const [recipeData, setRecipeData] = useState({} as recipeObject);
@@ -29,8 +30,6 @@ export default function RecipePage() {
       return <>loading</>;
     }
   }
-
-  console.log(recipeData);
 
   if (recipeData.id) {
     return (
@@ -50,24 +49,10 @@ export default function RecipePage() {
                 <h2>Ingredientes:</h2>
                 <Ingredients>
                   <IngredientsList Ingredients={recipeData.Ingredients} />
-                  {/* <p>- 1 e 1/2 xícara de leite morno</p>
-                  <p>- água 1/2 xícara de água morna</p>
-                  <p>- óleo 1/2 xícara</p>
-                  <p>- açúcar 4 colheres de sopa</p>
-                  <p>- 10 g de fermento biológico</p>
-                  <p>- sal 1/2 colher de sopa</p>
-                  <p>- 2 ovos </p> */}
                 </Ingredients>
                 <HowTo>
                   <h2>Como fazer:</h2>
-                  {recipeData.Steps.map((e) => (
-                    <>
-                      {console.log(e)}
-                      <h2>Passo {e.step}</h2>
-                      <img src={e.img} style={{ width: "100%" }} />
-                      <p>{e.Description}</p>
-                    </>
-                  ))}
+                  <StepList Steps={recipeData.Steps} />
                 </HowTo>
               </RecipeBody>
             </RecipeBlock>
@@ -82,17 +67,9 @@ export default function RecipePage() {
 
 type recipeObject = {
   id: number;
-  Ingredients: [
-    {
-      id: number;
-      RecipeId: number;
-      quantity: number;
-      name: string;
-      measureUnit: string;
-    }
-  ];
+  Ingredients: IngredientsType[];
   Description: string;
   name: string;
   img: string;
-  Steps: [{ step: number; img: string; Description: string }];
+  Steps: Steps[];
 };

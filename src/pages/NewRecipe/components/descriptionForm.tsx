@@ -22,7 +22,6 @@ export default function Description(prop: any) {
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h2>Nome da sua Receita</h2>
-        {/* register your input into the hook by invoking the "register" function */}
         <input
           style={{ background: "white" }}
           placeholder="nome da receita"
@@ -31,7 +30,6 @@ export default function Description(prop: any) {
         />
 
         {errors.name && <span> maximo 100 caracteres</span>}
-        {/* include validation with required or other standard HTML validation rules */}
         <h2>Foto da receita pronta</h2>
         <input
           style={{ background: "white" }}
@@ -39,7 +37,6 @@ export default function Description(prop: any) {
           placeholder="url da imagem"
           {...register("img", { required: true })}
         />
-        {/* errors will return when field validation fails  */}
         {errors.img && <span>Adicione uma imagem para a receita</span>}
         <h2> História da receita</h2>
         <BigInputs>

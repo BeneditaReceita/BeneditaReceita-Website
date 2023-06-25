@@ -22,7 +22,6 @@ export default function Steps(prop: any) {
     count++;
     data.step = count;
     array.push(data);
-    console.log(array);
     prop.step(array);
   };
 

@@ -1,8 +1,8 @@
 type prop = {
-  Ingredients: Ingredients[];
+  Ingredients: IngredientsType[];
 };
 
-type Ingredients = {
+export type IngredientsType = {
   id: number;
   RecipeId: number;
   quantity: number;

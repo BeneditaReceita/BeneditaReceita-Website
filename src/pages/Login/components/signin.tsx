@@ -21,15 +21,12 @@ export default function Signin() {
     <BodySignin>
       <form onSubmit={handleSubmit(onSubmit)}>
         <h2>Email</h2>
-        {/* register your input into the hook by invoking the "register" function */}
         <input
           style={{ background: "white" }}
           placeholder="email"
           type="email"
           {...register("example")}
         />
-
-        {/* include validation with required or other standard HTML validation rules */}
         <h2>senha</h2>
         <input
           style={{ background: "white" }}
@@ -37,7 +34,6 @@ export default function Signin() {
           placeholder="senha"
           {...register("exampleRequired", { required: true })}
         />
-        {/* errors will return when field validation fails  */}
         {errors.exampleRequired && <span>This field is required</span>}
 
         <input
@@ -45,7 +41,7 @@ export default function Signin() {
           type="submit"
         />
       </form>
-      {/* <Button></Button> */}
+
       <StyledLink to="/sign-up">
         Não se registrou ainda? Cadastre-se!
       </StyledLink>

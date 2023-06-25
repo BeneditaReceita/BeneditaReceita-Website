@@ -1,15 +1,13 @@
-import styled, { createGlobalStyle } from "styled-components";
 import FeedPage from "./FeedPage";
 import { useRecipeList } from "../hooks/api/useRecipes";
 
 import { useState } from "react";
+import { FeedContainer, GlobalStyles } from "./RecipePage/styles";
 
 export default function Landing() {
-  const [recipeList, setRecipeList] = useState([
-    { Description: "", createdAt: "", id: 0, img: "", name: "" },
-  ]);
+  const [recipeList, setRecipeList] = useState<Recipe>([{}] as Recipe);
   const { recipes } = useRecipeList();
-  const joj = useRecipeList;
+
   if (!recipeList[0].id) {
     if (recipes) {
       const { data } = recipes;
@@ -18,8 +16,6 @@ export default function Landing() {
       return <>loading</>;
     }
   }
-
-  console.log(joj);
 
   return (
     <>
@@ -40,20 +36,12 @@ export default function Landing() {
   );
 }
 
-const GlobalStyles = createGlobalStyle`
-  body{
-    background-color: #dbdbdb;
-    z-index: 0;
-    overflow-y: scroll;
-    padding-bottom: 100px;
+type Recipe = [
+  {
+    Description: string;
+    createdAt: string;
+    id: number;
+    img: string;
+    name: string;
   }
-
-`;
-
-const FeedContainer = styled.div`
-  top: 40px;
-  position: relative;
-  width: 85vw;
-  display: flex;
-  background-color: bisque;
-`;
+];

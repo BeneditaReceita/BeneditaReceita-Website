@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 export const Container = styled.div`
   width: 100vw;
@@ -124,4 +124,22 @@ export const HowTo = styled.div``;
 export const Spacer = styled.div`
   height: 200px;
   width: 150px;
+`;
+
+export const GlobalStyles = createGlobalStyle`
+  body{
+    background-color: #dbdbdb;
+    z-index: 0;
+    overflow-y: scroll;
+    padding-bottom: 100px;
+  }
+
+`;
+
+export const FeedContainer = styled.div`
+  top: 40px;
+  position: relative;
+  width: 85vw;
+  display: flex;
+  background-color: bisque;
 `;
