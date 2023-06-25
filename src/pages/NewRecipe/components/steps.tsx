@@ -19,8 +19,8 @@ export default function Steps(prop: any) {
   } = useForm<Step>();
 
   const onSubmit: SubmitHandler<Step> = (data) => {
-    data.step = count;
     count++;
+    data.step = count;
     array.push(data);
     console.log(array);
     prop.step(array);

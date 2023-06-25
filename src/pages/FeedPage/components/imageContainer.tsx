@@ -14,7 +14,7 @@ export default function ImageContainer(prop: imageProps) {
     <>
       <ImageDiv>
         <Link to={to}>
-          <img style={{ width: size }} src={image} />
+          <img style={{ width: size, height: "100%" }} src={image} />
         </Link>
       </ImageDiv>
     </>

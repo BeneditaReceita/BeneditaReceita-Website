@@ -6,6 +6,7 @@ export default function Banner() {
       <ImageContainer />
 
       <img
+        loading="lazy"
         style={{
           height: "100%",
           width: "100%",

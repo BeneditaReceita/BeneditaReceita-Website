@@ -30,6 +30,8 @@ export default function RecipePage() {
     }
   }
 
+  console.log(recipeData);
+
   if (recipeData.id) {
     return (
       <>
@@ -58,7 +60,14 @@ export default function RecipePage() {
                 </Ingredients>
                 <HowTo>
                   <h2>Como fazer:</h2>
-                  {recipeData.HowTo}
+                  {recipeData.Steps.map((e) => (
+                    <>
+                      {console.log(e)}
+                      <h2>Passo {e.step}</h2>
+                      <img src={e.img} style={{ width: "100%" }} />
+                      <p>{e.Description}</p>
+                    </>
+                  ))}
                 </HowTo>
               </RecipeBody>
             </RecipeBlock>
