@@ -34,7 +34,7 @@ export default function Steps(prop: any) {
           style={{ background: "white" }}
           placeholder="imagem para referencia"
           type="url"
-          {...register("img", { required: true, maxLength: 100 })}
+          {...register("img", { required: true })}
         />
 
         {errors.img && (

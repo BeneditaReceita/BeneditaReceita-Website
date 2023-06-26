@@ -55,6 +55,7 @@ const Container = styled.div`
     }
   }
   span {
+    font-weight: 800;
     a:visited {
       color: #000000;
     }
@@ -64,7 +65,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #8a5e01;
+    color: #644501;
     position: fixed;
     top: 18px;
     border-radius: 25px;

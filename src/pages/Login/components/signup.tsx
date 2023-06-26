@@ -1,60 +1,88 @@
 import { BodySignin, StyledLink } from "./styled";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import api from "../../../services/api";
+import { useState } from "react";
 
 type Inputs = {
-  example: string;
-  exampleRequired: string;
+  email: string;
+  password: string;
   confirmPassword: string;
+  name: string;
+  image: string;
 };
 
 export default function Signup() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
-  console.log(watch("example")); // watch input value by passing the name of it
+  const [showError, setShowError] = useState("none");
+
+  async function onSubmit(data: Inputs) {
+    if (data.confirmPassword != data.password) {
+      setShowError("");
+      return 0;
+    }
+    await api.post("/user", data);
+  }
 
   return (
     <BodySignin>
       <form onSubmit={handleSubmit(onSubmit)}>
+        <h2>Nome</h2>
+        <input
+          style={{ background: "white" }}
+          type="nome"
+          placeholder="nome"
+          {...register("name", { required: true })}
+        />
+        {/* errors will return when field validation fails  */}
+        {errors.password && <span>Este campo é obrigatório</span>}
+
+        <h2>Foto</h2>
+        <input
+          style={{ background: "white" }}
+          type="url"
+          placeholder="sua foto"
+          {...register("image", { required: true })}
+        />
+        {errors.password && <span>Este campo é obrigatório</span>}
+
         <h2>Email</h2>
-        {/* register your input into the hook by invoking the "register" function */}
         <input
           style={{ background: "white" }}
           placeholder="email"
           type="email"
-          {...register("example")}
+          {...register("email")}
         />
 
-        {/* include validation with required or other standard HTML validation rules */}
         <h2>senha</h2>
         <input
           style={{ background: "white" }}
           type="password"
           placeholder="senha"
-          {...register("exampleRequired", { required: true })}
+          {...register("password", { required: true })}
         />
-        {/* errors will return when field validation fails  */}
-        {errors.exampleRequired && <span>This field is required</span>}
+        {errors.password && <span>Este campo é obrigatório</span>}
         <h2>Confirmar senha</h2>
         <input
           style={{ background: "white" }}
           type="password"
           placeholder="confirme a senha"
-          {...register("exampleRequired", { required: true })}
+          {...register("confirmPassword", { required: true })}
         />
-        {/* errors will return when field validation fails  */}
-        {errors.exampleRequired && <span>This field is required</span>}
+        {errors.confirmPassword && <span>Campo obrigatório!</span>}
+        <span style={{ display: showError, margin: "5px" }}>
+          As senhas devem ser iguais
+        </span>
         <input
           style={{ background: "#FF531C", color: "#ffffff", border: "none" }}
           type="submit"
         />
       </form>
-      {/* <Button></Button> */}
+
       <StyledLink to="/login">Já possui uma conta? Efetue o login!</StyledLink>
     </BodySignin>
   );
