@@ -2,6 +2,7 @@ import { BodySignin, StyledLink } from "./styled";
 import { useForm } from "react-hook-form";
 import api from "../../../services/api";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 type Inputs = {
   email: string;
@@ -17,7 +18,7 @@ export default function Signup() {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
-
+  const navigate = useNavigate();
   const [showError, setShowError] = useState("none");
 
   async function onSubmit(data: Inputs) {
@@ -25,7 +26,14 @@ export default function Signup() {
       setShowError("");
       return 0;
     }
-    await api.post("/user", data);
+    try {
+      await api.post("/user", data).then(() => navigate("/login"));
+    } catch (err) {
+      if (err.response.status === 409) {
+        alert("email em uso, utilize outro.");
+      }
+      console.log(err.response.data);
+    }
   }
 
   return (
@@ -38,7 +46,7 @@ export default function Signup() {
           placeholder="nome"
           {...register("name", { required: true })}
         />
-        {/* errors will return when field validation fails  */}
+
         {errors.password && <span>Este campo é obrigatório</span>}
 
         <h2>Foto</h2>

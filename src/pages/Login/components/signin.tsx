@@ -1,21 +1,32 @@
 import { BodySignin, StyledLink } from "./styled";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm } from "react-hook-form";
+import api from "../../../services/api";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 type Inputs = {
-  example: string;
-  exampleRequired: string;
+  email: string;
+  password: string;
 };
 
 export default function Signin() {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+  const navigate = useNavigate();
+  const [showError, setShowError] = useState("none");
 
-  console.log(watch("example")); // watch input value by passing the name of it
+  async function onSubmit(data: Inputs) {
+    try {
+      await api.post("/user/signin", data).then(() => navigate("/"));
+    } catch (err) {
+      if (err.response.status === 401) {
+        setShowError("");
+      } else alert(err.message);
+    }
+  }
 
   return (
     <BodySignin>
@@ -25,17 +36,18 @@ export default function Signin() {
           style={{ background: "white" }}
           placeholder="email"
           type="email"
-          {...register("example")}
+          {...register("email", { required: true })}
         />
+        {errors.email && <span>Preencha este campo</span>}
         <h2>senha</h2>
         <input
           style={{ background: "white" }}
           type="password"
           placeholder="senha"
-          {...register("exampleRequired", { required: true })}
+          {...register("password", { required: true })}
         />
-        {errors.exampleRequired && <span>This field is required</span>}
-
+        {errors.password && <span>Preencha este campo</span>}
+        <span style={{ display: showError }}>Senha incorreta!</span>
         <input
           style={{ background: "#FF531C", color: "#ffffff", border: "none" }}
           type="submit"

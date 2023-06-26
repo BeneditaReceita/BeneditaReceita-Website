@@ -65,6 +65,9 @@ export const BodySignin = styled.div`
   justify-content: center;
   flex-direction: column;
   user-select: none;
+  span {
+    margin-bottom: 5px;
+  }
   @media (max-width: 900px) {
     width: 100%;
   }
